@@ -1,0 +1,12 @@
+{
+    "display_name": "The name of the plugin",
+    "loading_order": 1,
+    "requires": [],
+    "optional": [],
+    "js": "packages/extension/dist/index.js",
+    "css": "packages/extension/dist/index.css",
+    "author": "Your name",
+    "version": "1.0.0",
+    "homePage": "https://github.com/your/plugin",
+    "auto_update": true
+}

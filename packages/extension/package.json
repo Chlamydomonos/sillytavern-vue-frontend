@@ -1,0 +1,29 @@
+{
+    "name": "@sillytavern-vue-frontend/extension",
+    "version": "1.0.0",
+    "author": "Chlamydomonos",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "run-p type-check \"build-only {@}\" --",
+        "preview": "vite preview",
+        "build-only": "vite build",
+        "type-check": "vue-tsc --build"
+    },
+    "dependencies": {
+        "vue": "^3.5.13"
+    },
+    "devDependencies": {
+        "@tsconfig/node22": "^22.0.0",
+        "@types/node": "^22.10.2",
+        "@vitejs/plugin-vue": "^5.2.1",
+        "@vue/tsconfig": "^0.7.0",
+        "npm-run-all2": "^7.0.2",
+        "typescript": "~5.6.3",
+        "vite": "^6.0.5",
+        "vite-plugin-vue-devtools": "^7.6.8",
+        "vue-tsc": "^2.1.10",
+        "@sillytavern-vue-frontend/rollup-plugin": "workspace:*"
+    },
+    "packageManager": "pnpm@9.15.1+sha512.1acb565e6193efbebda772702950469150cf12bcc764262e7587e71d19dc98a423dff9536e57ea44c49bdf790ff694e83c27be5faa23d67e0c033b583be4bfcf"
+}
