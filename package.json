@@ -1,0 +1,6 @@
+{
+    "name": "sillytavern-vue-frontend",
+    "scripts": {
+        "build": "cd packages/rollup-plugin && pnpm build && cd ../extension && pnpm build"
+    }
+}

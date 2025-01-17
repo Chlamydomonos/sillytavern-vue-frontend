@@ -1,12 +1,21 @@
-import './assets/main.css';
-import { getContext } from 'sillytavern-extension-api';
+import 'element-plus/theme-chalk/dark/css-vars.css';
 
 import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 import App from './App.vue';
 
-const tavernContext = getContext();
+const extensionsSettingsElem = document.getElementById('extensions_settings');
+const settingDiv = document.createElement('div');
+settingDiv.id = 'vue-frontend-settings';
+const appElem = extensionsSettingsElem!.appendChild(settingDiv);
 
-const extensionsSettingsElem = document.getElementById('#extensions_settings');
-const appElem = extensionsSettingsElem!.appendChild(document.createElement('div'));
+const htmlRes = document.evaluate('/html', document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null);
+const htmlElem = htmlRes.singleNodeValue;
+if (htmlElem) {
+    (htmlElem as HTMLElement).classList.add('dark');
+}
 
-createApp(App).mount(appElem);
+const app = createApp(App);
+const pinia = createPinia();
+app.use(pinia);
+app.mount(appElem);
