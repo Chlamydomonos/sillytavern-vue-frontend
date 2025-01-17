@@ -6,4 +6,7 @@ import App from './App.vue';
 
 const tavernContext = getContext();
 
-createApp(App).mount('#app');
+const extensionsSettingsElem = document.getElementById('#extensions_settings');
+const appElem = extensionsSettingsElem!.appendChild(new HTMLDivElement());
+
+createApp(App).mount(appElem);
