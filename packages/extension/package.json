@@ -13,7 +13,8 @@
     "dependencies": {
         "element-plus": "^2.9.3",
         "pinia": "^2.3.0",
-        "vue": "^3.5.13"
+        "vue": "^3.5.13",
+        "@sillytavern-vue-frontend/frontend-event-emitter": "workspace:*"
     },
     "devDependencies": {
         "@sillytavern-vue-frontend/rollup-plugin": "workspace:*",

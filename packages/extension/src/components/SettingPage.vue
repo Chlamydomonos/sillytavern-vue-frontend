@@ -1,9 +1,11 @@
 <template>
     <div class="outer-container">
-        <div class="switch-row">
-            <div class="text">启用</div>
-            <el-switch v-model="settings.enabled" />
-        </div>
+        <html class="dark">
+            <div class="switch-row">
+                <div class="text">启用</div>
+                <el-switch v-model="settings.enabled" />
+            </div>
+        </html>
     </div>
 </template>
 
@@ -19,7 +21,7 @@ const { settings } = useSettingsStore();
     border-radius: 4px;
     margin: 2px;
     background-color: rgb(11, 24, 35);
-    --el-text-color-primary: #dcdcd2;
+    --stv-text-color-primary: #dcdcd2;
 }
 
 .switch-row {
