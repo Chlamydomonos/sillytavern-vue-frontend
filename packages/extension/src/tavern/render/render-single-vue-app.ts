@@ -4,7 +4,7 @@ import { FrontendEventEmitter } from '@sillytavern-vue-frontend/frontend-event-e
 import { getContext } from 'sillytavern-extension-api';
 import { createWrapperApi } from '../wrapper-api';
 
-export const renderSingleVueApp = (mesId: number, content: string, mes: HTMLDivElement, inStream: boolean = false) => {
+export const renderSingleVueApp = (mesId: number, content: string, mes: HTMLDivElement) => {
     const { vueApp, chatApps } = useVueAppStore();
     const { settings } = useSettingsStore();
     if (!vueApp || !settings.enabled) {
@@ -38,7 +38,6 @@ export const renderSingleVueApp = (mesId: number, content: string, mes: HTMLDivE
 
     const newApp = vueApp();
     newApp.provide('initialMessage', content);
-    newApp.provide('initialInStream', inStream);
     const newDiv = document.createElement('div');
     newDiv.classList.add('vue-frontend-app');
     newDiv.style.paddingRight = '30px';

@@ -1,0 +1,17 @@
+{
+    "name": "@sillytavern-vue-frontend/project-helper",
+    "version": "1.0.0",
+    "author": "Chlamydomonos",
+    "main": "dist/index.js",
+    "type": "module",
+    "devDependencies": {
+        "typescript": "^5.7.3"
+    },
+    "dependencies": {
+        "vue": "^3.5.13",
+        "@sillytavern-vue-frontend/frontend-event-emitter": "workspace:*"
+    },
+    "scripts": {
+        "build": "tsc --build"
+    }
+}
