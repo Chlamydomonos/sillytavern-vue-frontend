@@ -9,5 +9,8 @@
     },
     "scripts": {
         "build": "tsc --build"
-    }
+    },
+    "files": [
+        "dist"
+    ]
 }
