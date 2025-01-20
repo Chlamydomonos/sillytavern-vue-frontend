@@ -1,0 +1,65 @@
+name: Build
+on:
+    push:
+        branches:
+            - release
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v3
+              with:
+                  fetch-depth: 0
+                  path: project
+
+            - name: Get last commit message
+              id: get_commit_message
+              run: echo "LAST_COMMIT_MESSAGE=$(git log -1 --pretty=%B)" >> $GITHUB_ENV
+
+            - name: Set up Node 22
+              uses: actions/setup-node@v4
+              with:
+                  node-version: 22
+                  cache: pnpm
+
+            - name: Build Project
+              run: |
+                  npm install -g pnpm
+                  git checkout release
+                  git pull origin release
+                  mkdir ../temp
+                  cp -r ./* ../temp
+                  cd ../temp
+                  pnpm install
+                  pnpm build
+                  cd ../project
+                  git checkout main
+                  rm -rf ./*
+                  cp ../temp/README.md .
+                  cp ../temp/LICENSE .
+                  cp ../temp/manifest.json .
+                  mkdir -p packages/extension
+                  cp -r ../temp/packages/extension/dist ./packages/extension
+                  cp -r ../temp/.github .
+
+            - name: Commit changes
+              run: |
+                  git add .
+                  STATUS_OUTPUT=$(git status --porcelain)
+                  STATUS_OUTPUT_LENGTH=${#STATUS_OUTPUT}
+                  if [[ $STATUS_OUTPUT_LENGTH -gt 0 ]]; then
+                    git commit -m "${{ env.LAST_COMMIT_MESSAGE }}: build project"
+                  else
+                    echo "No changes to commit."
+                  fi
+
+            - name: Push changes
+              uses: ad-m/github-push-action@master
+              with:
+                  github_token: ${{ secrets.GITHUB_TOKEN }}
+                  branch: main
