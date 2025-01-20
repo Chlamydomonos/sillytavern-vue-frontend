@@ -50,6 +50,8 @@ jobs:
             - name: Commit changes
               run: |
                   cd project
+                  git config user.name "GitHub Actions Bot"
+                  git config user.email "actions@github.com"
                   git add .
                   STATUS_OUTPUT=$(git status --porcelain)
                   STATUS_OUTPUT_LENGTH=${#STATUS_OUTPUT}
