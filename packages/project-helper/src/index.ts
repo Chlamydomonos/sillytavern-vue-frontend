@@ -12,7 +12,7 @@ export const ProjectHelper = {
     },
 
     eventEmitter: () => {
-        return inject('frontendEventEmitter', undefined as any as FrontendEventEmitter);
+        return inject('frontendEventEmitter', undefined as any as Omit<FrontendEventEmitter, 'emit'>);
     },
 
     tavernContext: () => {
