@@ -30,15 +30,15 @@ jobs:
               run: |
                   npm install -g pnpm
                   cd project
-                  git checkout release
-                  git pull origin release
                   mkdir ../temp
                   cp -r ./* ../temp
+                  cp -r ./.github ../temp
                   cd ../temp
                   pnpm install
                   pnpm build
                   cd ../project
                   git checkout main
+                  git pull origin main
                   rm -rf ./*
                   cp ../temp/README.md .
                   cp ../temp/LICENSE .
