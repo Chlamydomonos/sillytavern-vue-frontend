@@ -12,6 +12,8 @@
 - 用Vite构建项目得到css文件和js文件。在角色卡对应的世界书中创建`vue-css`和`vue-js`两个条目，把文件的内容复制到其中。
 - 刷新窗口后，角色输出的每条消息都会被替换为一个Vue前端实例。
 
+具体的示例参见[示例项目](https://github.com/Chlamydomonos/sillytavern-vue-frontend-example)
+
 ## 接口
 
 声明：接口还处于极早期阶段，将在后续设计更多接口。
