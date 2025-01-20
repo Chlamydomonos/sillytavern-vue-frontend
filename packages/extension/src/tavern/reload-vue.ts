@@ -6,7 +6,9 @@ import type { App } from 'vue';
 
 const cleanVue = () => {
     const store = useVueAppStore();
-    document.getElementById('vue-css')?.remove();
+    const vueCssElem = document.getElementById('vue-css');
+    console.log('try cleanVue, vueCssElem:', vueCssElem);
+    vueCssElem?.parentNode?.removeChild(vueCssElem);
     store.vueApp = undefined;
     store.chatApps = {};
 };
