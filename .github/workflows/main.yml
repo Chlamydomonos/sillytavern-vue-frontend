@@ -29,6 +29,7 @@ jobs:
             - name: Build Project
               run: |
                   npm install -g pnpm
+                  cd project
                   git checkout release
                   git pull origin release
                   mkdir ../temp
