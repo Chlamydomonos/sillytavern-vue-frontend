@@ -49,6 +49,7 @@ jobs:
 
             - name: Commit changes
               run: |
+                  cd project
                   git add .
                   STATUS_OUTPUT=$(git status --porcelain)
                   STATUS_OUTPUT_LENGTH=${#STATUS_OUTPUT}
@@ -63,3 +64,4 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   branch: main
+                  directory: project
