@@ -1,6 +1,7 @@
 import { inject, type App } from 'vue';
 import type { FrontendEventEmitter } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { WrapperApi } from './wrapper-api';
+import { FakeWrapperAPI } from './fake-wrapper-api';
 
 export const ProjectHelper = {
     acceptVueApp: (app: () => App) => {
@@ -21,6 +22,6 @@ export const ProjectHelper = {
     },
 
     wrapperApi: () => {
-        return inject('wrapperApi', undefined as any as WrapperApi);
+        return inject('wrapperApi', FakeWrapperAPI);
     },
 };
