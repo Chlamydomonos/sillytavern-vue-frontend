@@ -1,6 +1,6 @@
 {
     "name": "sillytavern-vue-frontend",
-    "version": "1.1.5",
+    "version": "1.1.6",
     "author": "Chlamydomonos",
     "scripts": {
         "build": "cd packages/rollup-plugin && pnpm build && cd ../frontend-event-emitter && pnpm build && cd ../extension && pnpm build && cd ../project-helper && pnpm build",
