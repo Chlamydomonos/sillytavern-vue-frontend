@@ -21,6 +21,6 @@ export const ProjectHelper = {
     },
 
     wrapperApi: () => {
-        const api = inject('wrapperApi', FakeWrapperAPI);
+        return inject('wrapperApi', FakeWrapperAPI);
     },
 };
