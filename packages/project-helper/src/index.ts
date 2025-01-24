@@ -23,6 +23,11 @@ export const ProjectHelper = {
 
     wrapperApi: () => {
         const api = inject('wrapperApi', undefined as any as WrapperApi);
-        return api ?? FakeWrapperAPI;
+        if (!api) {
+            console.log('获取Wrapper API失败');
+            return FakeWrapperAPI;
+        }
+        console.log('获取Wrapper API:', api);
+        return api;
     },
 };

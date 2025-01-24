@@ -22,7 +22,7 @@ const packageJsonPaths = [
     path.join(workspaceDir, 'frontend-event-emitter', 'package.json'),
     path.join(workspaceDir, 'project-helper', 'package.json'),
     path.join(workspaceDir, 'rollup-plugin', 'package.json'),
-    path.join(workspaceDir, 'manifest.json'),
+    path.join(rootDir, 'manifest.json'),
 ];
 
 // 用正则表达式更新每个 package.json 的 version 字段
