@@ -4,4 +4,8 @@ export const FakeWrapperAPI: WrapperApi = {
     renderMessage(content) {
         return `<p>${content}</p>`;
     },
+    messageVars() {
+        return {};
+    },
+    async saveChat() {},
 };

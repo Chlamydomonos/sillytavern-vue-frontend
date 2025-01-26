@@ -13,6 +13,7 @@ interface TavernContext {
     characterId: number;
     characters: TavernV1CharData[];
     chat: Chat[];
+    saveChat: () => Promise<void>;
 }
 
 declare module 'sillytavern-extension-api' {

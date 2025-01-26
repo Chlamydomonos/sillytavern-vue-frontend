@@ -16,11 +16,6 @@ export const renderVue = () => {
                 continue;
             }
 
-            const rendered = node.attributes.getNamedItem('vue-rendered');
-            if (rendered) {
-                continue;
-            }
-
             const isUser = node.attributes.getNamedItem('is_user');
             const isSystem = node.attributes.getNamedItem('is_system');
             if (!isUser || !isSystem) {

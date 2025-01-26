@@ -1,3 +1,6 @@
+import { reloadVue } from '@/tavern/reload-vue';
+import { cleanVue } from '@/tavern/render/clean-vue';
+import { renderVue } from '@/tavern/render/render-vue';
 import { defineStore } from 'pinia';
 import { extension_settings, getContext } from 'sillytavern-extension-api';
 import { reactive, watch } from 'vue';
@@ -21,8 +24,13 @@ export const useSettingsStore = defineStore('settings', () => {
         }
     }
 
-    watch(settings, (s) => {
-        console.log('Settings Changed');
+    watch(settings, async (s) => {
+        if (s.enabled) {
+            await reloadVue();
+            renderVue();
+        } else {
+            cleanVue();
+        }
         extension_settings['vue-frontend'] = { ...s };
         tavernContext.saveSettingsDebounced();
     });

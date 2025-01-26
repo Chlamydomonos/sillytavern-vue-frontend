@@ -53,7 +53,7 @@ export const renderSingleVueApp = (mesId: number, content: string, mes: HTMLDivE
         const isEditing = document.getElementById('curEditTextarea');
         if (isEditing && isEditing.parentNode == mesText) {
             (mesText as HTMLDivElement).hidden = false;
-            //newDiv.hidden = true;
+            newDiv.hidden = true;
         }
     });
 
