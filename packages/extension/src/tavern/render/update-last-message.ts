@@ -1,3 +1,4 @@
+import { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { renderSingleVueApp } from './render-single-vue-app';
 
 export const updateLastMessage = (content: string) => {
@@ -13,6 +14,6 @@ export const updateLastMessage = (content: string) => {
         }
         const mesId = parseInt(mesIdAttr.value);
 
-        renderSingleVueApp(mesId, content, lastMes);
+        renderSingleVueApp(mesId, content, lastMes, MessageUpdateReason.STREAM);
     }
 };

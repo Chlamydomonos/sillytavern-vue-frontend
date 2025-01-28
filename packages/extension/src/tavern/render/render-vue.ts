@@ -1,7 +1,9 @@
 import { getContext } from 'sillytavern-extension-api';
 import { renderSingleVueApp } from './render-single-vue-app';
+import type { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
+import { getContent } from '../get-content';
 
-export const renderVue = () => {
+export const renderVue = (reason: MessageUpdateReason) => {
     const chat = getContext().chat;
 
     const chatDiv = document.getElementById('chat') as HTMLDivElement | undefined;
@@ -34,7 +36,7 @@ export const renderVue = () => {
 
             console.log(`尝试渲染消息#${mesId}...`);
 
-            renderSingleVueApp(mesId, chat[mesId].mes, node);
+            renderSingleVueApp(mesId, getContent(chat, mesId), node, reason);
         }
     }
 };

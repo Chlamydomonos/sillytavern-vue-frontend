@@ -1,9 +1,14 @@
 <template>
     <div class="outer-container">
         <html class="dark">
-            <div class="switch-row">
-                <div class="text">启用</div>
-                <el-switch v-model="settings.enabled" />
+            <div class="inner-container">
+                <div class="switch-row">
+                    <div class="text">启用</div>
+                    <el-switch v-model="settings.enabled" />
+                </div>
+                <div>
+                    <el-button @click="uploadFrontend">上传Vue前端到世界书</el-button>
+                </div>
             </div>
         </html>
     </div>
@@ -11,6 +16,7 @@
 
 <script setup lang="ts">
 import { useSettingsStore } from '@/stores/setting';
+import { uploadFrontend } from '@/tavern/upload-frontend';
 
 const { settings } = useSettingsStore();
 </script>
@@ -24,11 +30,13 @@ const { settings } = useSettingsStore();
     --stv-text-color-primary: #dcdcd2;
 }
 
+.inner-container {
+    margin: 5px;
+}
+
 .switch-row {
     display: flex;
     justify-content: space-between;
-    margin-left: 5px;
-    margin-right: 5px;
     .text {
         line-height: 32px;
     }

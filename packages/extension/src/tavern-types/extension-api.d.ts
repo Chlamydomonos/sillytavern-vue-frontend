@@ -14,6 +14,7 @@ interface TavernContext {
     characters: TavernV1CharData[];
     chat: Chat[];
     saveChat: () => Promise<void>;
+    setExtensionPrompt: SetExtensionPrompt;
 }
 
 declare module 'sillytavern-extension-api' {

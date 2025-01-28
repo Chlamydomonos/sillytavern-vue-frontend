@@ -24,3 +24,5 @@ export const ProjectHelper = {
         return inject('wrapperApi', FakeWrapperAPI);
     },
 };
+
+export { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';

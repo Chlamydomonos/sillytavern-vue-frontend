@@ -11,9 +11,9 @@ export class FrontendEventEmitter {
 
     on<T extends keyof Events>(event: T, listener: Events[T]) {
         if (!this.listeners[event]) {
-            this.listeners[event] = new Set();
+            this.listeners[event] = new Set() as any;
         }
-        this.listeners[event].add(listener);
+        this.listeners[event]!.add(listener);
     }
 
     off<T extends keyof Events>(event: T, listener: Events[T]) {
@@ -30,3 +30,5 @@ export class FrontendEventEmitter {
         }
     }
 }
+
+export { MessageUpdateReason } from './events';

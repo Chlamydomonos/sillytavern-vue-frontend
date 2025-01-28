@@ -1,10 +1,15 @@
 import { useSettingsStore } from '@/stores/setting';
 import { useVueAppStore } from '@/stores/vue-app';
-import { FrontendEventEmitter } from '@sillytavern-vue-frontend/frontend-event-emitter';
+import { FrontendEventEmitter, MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { getContext } from 'sillytavern-extension-api';
 import { createWrapperApi } from '../wrapper-api';
 
-export const renderSingleVueApp = (mesId: number, content: string, mes: HTMLDivElement) => {
+export const renderSingleVueApp = (
+    mesId: number,
+    content: string,
+    mes: HTMLDivElement,
+    reason: MessageUpdateReason
+) => {
     const { vueApp, chatApps } = useVueAppStore();
     const { settings } = useSettingsStore();
     if (!vueApp || !settings.enabled) {
@@ -32,7 +37,7 @@ export const renderSingleVueApp = (mesId: number, content: string, mes: HTMLDivE
     const vueAppDiv = mesBlock.querySelector('.vue-frontend-app');
     if (vueAppDiv instanceof HTMLDivElement) {
         vueAppDiv.hidden = false;
-        chatApps[mesId].emit('messageUpdated', content);
+        chatApps[mesId].emit('messageUpdated', content, reason);
         return;
     }
 

@@ -1,6 +1,7 @@
 import { reloadVue } from '@/tavern/reload-vue';
 import { cleanVue } from '@/tavern/render/clean-vue';
 import { renderVue } from '@/tavern/render/render-vue';
+import { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { defineStore } from 'pinia';
 import { extension_settings, getContext } from 'sillytavern-extension-api';
 import { reactive, watch } from 'vue';
@@ -27,7 +28,7 @@ export const useSettingsStore = defineStore('settings', () => {
     watch(settings, async (s) => {
         if (s.enabled) {
             await reloadVue();
-            renderVue();
+            renderVue(MessageUpdateReason.UNKNOWN);
         } else {
             cleanVue();
         }
