@@ -3,6 +3,30 @@ import { useVueAppStore } from '@/stores/vue-app';
 import { getContext } from 'sillytavern-extension-api';
 import { loadWorldInfo } from 'sillytavern-world-api';
 import type { App } from 'vue';
+import { registerVarWorldInfo } from './register-var-world-info';
+import { useWorldInfoStore } from '@/stores/world-info';
+import { EntryPosition, ExtensionPromptRole } from '@/tavern-types/enums';
+
+const reloadVueBook = (entries: Record<number, TavernV2DataWorldInfoEntry>) => {
+    const { vueBook } = useWorldInfoStore();
+    for (const key in vueBook) {
+        delete vueBook[key];
+    }
+
+    for (const key in entries) {
+        const entry = entries[key];
+        const isVueBookEntry = /^Vue-(.+)$/.exec(entry.comment);
+        if (isVueBookEntry) {
+            const entryName = isVueBookEntry[1];
+            if (entry.position == EntryPosition.IN_DEPTH && entry.role == ExtensionPromptRole.SYSTEM) {
+                vueBook[entryName] = {
+                    content: entry.content,
+                    depth: entry.depth!,
+                };
+            }
+        }
+    }
+};
 
 const cleanVue = () => {
     const store = useVueAppStore();
@@ -47,6 +71,8 @@ export const reloadVue = async () => {
         return;
     }
 
+    reloadVueBook(bookEntries);
+
     let jsContent: string | undefined;
     let cssContent: string | undefined;
 
@@ -72,6 +98,8 @@ export const reloadVue = async () => {
     (window as any).acceptVueApp = (app: () => App) => {
         store.vueApp = app;
     };
+
+    (window as any).registerVarWorldInfo = registerVarWorldInfo;
 
     store.vueApp = undefined;
     try {

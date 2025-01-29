@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia';
-import { ref, shallowRef } from 'vue';
+import { shallowRef } from 'vue';
 import type { App } from 'vue';
 import type { FrontendEventEmitter } from '@sillytavern-vue-frontend/frontend-event-emitter';
 

@@ -28,9 +28,8 @@ export const listenEvents = () => {
             renderVue(MessageUpdateReason.EDIT);
             emitVarEvents();
         },
-        [event_types.MESSAGE_SWIPED]: (mesId: number) => {
+        [event_types.MESSAGE_SWIPED]: () => {
             renderVue(MessageUpdateReason.SWIPE);
-            emitVarEvent(mesId);
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
     };

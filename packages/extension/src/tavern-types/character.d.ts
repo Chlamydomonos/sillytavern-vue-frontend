@@ -7,7 +7,9 @@ type TavernV2DataWorldInfoEntry = {
     selective: boolean;
     insertion_order: number;
     enabled: boolean;
-    position: string;
+    position: import('./enums').EntryPosition;
+    role?: import('./enums').ExtensionPromptRole;
+    depth?: number;
     extensions: TavernV2DataWorldInfoEntryExtensionInfos;
     id: number;
 };

@@ -4,7 +4,10 @@ import { FakeEventEmitter } from './fake-event-emitter';
 
 export const ProjectHelper = {
     acceptVueApp: (app: () => App) => {
-        (window as any).acceptVueApp(app);
+        const original = (window as any).acceptVueApp;
+        if (original) {
+            original(app);
+        }
     },
 
     initialMessage: () => {
@@ -22,6 +25,13 @@ export const ProjectHelper = {
 
     wrapperApi: () => {
         return inject('wrapperApi', FakeWrapperAPI);
+    },
+
+    registerVarWorldInfo: <T extends Record<string, any>>(predicate: (vars: T) => boolean, name: string) => {
+        const original = (window as any).registerVarWorldInfo;
+        if (original) {
+            original(predicate, name);
+        }
     },
 };
 
