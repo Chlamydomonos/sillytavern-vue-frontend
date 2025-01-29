@@ -25,7 +25,9 @@ export const emitVarEvent = (mesId: number) => {
         }
     }
 
-    if (!lastMesId) {
+    console.log('Try emit var event, mesId:', mesId, 'last mesId:', lastMesId);
+
+    if (lastMesId == undefined) {
         currentEmitter.emit('initVariables', getContent(chat, mesId));
         return;
     }

@@ -10,6 +10,19 @@ export const saveChat = (mesId: number) => {
         if (mesId == chat.length - 1) {
             handleVarChange(messageVars(mesId));
             await original();
+            return;
+        }
+
+        let hasCharAfter = false;
+        for (let i = mesId; i < chat.length; i++) {
+            if (!chat[i].is_system && !chat[i].is_user) {
+                hasCharAfter = true;
+                break;
+            }
+        }
+        if (!hasCharAfter) {
+            handleVarChange(messageVars(mesId));
+            await original();
         }
     };
 };
