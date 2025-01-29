@@ -1,6 +1,6 @@
 {
     "name": "@sillytavern-vue-frontend/frontend-event-emitter",
-    "version": "1.1.11",
+    "version": "1.1.12",
     "author": "Chlamydomonos",
     "main": "dist/index.js",
     "type": "module",
