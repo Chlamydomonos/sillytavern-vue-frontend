@@ -27,10 +27,13 @@ export const ProjectHelper = {
         return inject('wrapperApi', FakeWrapperAPI);
     },
 
-    registerVarWorldInfo: <T extends Record<string, any>>(predicate: (vars: T) => boolean, name: string) => {
+    registerVarWorldInfo: <T extends Record<string, any>>(
+        predicate: (vars: T) => boolean,
+        arg: string | ((vars: T) => { content: string; depth: number })
+    ) => {
         const original = (window as any).registerVarWorldInfo;
         if (original) {
-            original(predicate, name);
+            original(predicate, arg);
         }
     },
 };

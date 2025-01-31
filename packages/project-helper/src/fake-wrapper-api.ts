@@ -8,4 +8,7 @@ export const FakeWrapperAPI: WrapperApi = {
         return {};
     },
     async saveChat() {},
+    getVueBook() {
+        return {};
+    },
 };

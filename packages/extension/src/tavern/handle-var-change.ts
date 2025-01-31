@@ -7,7 +7,16 @@ export const handleVarChange = async (vars: Record<string, any>) => {
     const context = getContext();
     try {
         for (const item of worldInfo) {
-            if (item.name in vueBook && item.predicate(vars)) {
+            const activated = item.predicate(vars);
+            if (item.entry && activated) {
+                const entry = item.entry(vars);
+                context.setExtensionPrompt(
+                    `Vue-${item.name}`,
+                    entry.content,
+                    ExtensionPromptPosition.IN_CHAT,
+                    entry.depth
+                );
+            } else if (item.name in vueBook && activated) {
                 const entry = vueBook[item.name];
                 context.setExtensionPrompt(
                     `Vue-${item.name}`,
