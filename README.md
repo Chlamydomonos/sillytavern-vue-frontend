@@ -80,6 +80,7 @@ interface FrontendEventEmitter {
 | `messageUpdated` | `(newMessage: string, updateReason: MessageUpdateReason) => void` | 在前端对应的消息更新后触发。 |
 | `initVariables` | `(currentMessage: string) => void` | 在楼层变量需要初始化时触发。 |
 | `updateVariables` | `(oldVariables: Record<string, any>, currentMessage: string) => void` | 在楼层变量需要更新时触发。 |
+| `promptReady` | `(chat: { role: string; content: string }[], dryRun: boolean) => void` | 在Prompt即将发送给AI时触发。 |
 
 ## 楼层变量与Vue世界书
 

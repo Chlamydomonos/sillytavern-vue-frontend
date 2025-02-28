@@ -6,6 +6,7 @@ import { cleanVue } from './render/clean-vue';
 import { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { emitVarEvent } from './emit-var-event';
 import { emitVarEvents } from './emit-var-events';
+import { handlePrompt } from './handle-prompt';
 
 export const listenEvents = () => {
     const { event_types, eventSource } = getContext();
@@ -32,6 +33,7 @@ export const listenEvents = () => {
             renderVue(MessageUpdateReason.SWIPE);
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
+        [event_types.CHAT_COMPLETION_PROMPT_READY]: handlePrompt,
     };
 
     for (const key in listeners) {

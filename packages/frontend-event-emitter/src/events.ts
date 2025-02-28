@@ -10,4 +10,5 @@ export type Events = {
     messageUpdated: (newMessage: string, updateReason: MessageUpdateReason) => void;
     initVariables: (currentMessage: string) => void;
     updateVariables: (oldVariables: Record<string, any>, currentMessage: string) => void;
+    promptReady: (chat: { role: string; content: string }[], dryRun: boolean) => void;
 };
