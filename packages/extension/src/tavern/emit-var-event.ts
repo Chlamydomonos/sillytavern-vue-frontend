@@ -4,7 +4,7 @@ import { getContext } from 'sillytavern-extension-api';
 import { messageVars } from './wrapper-api/message-vars';
 import { getContent } from './get-content';
 
-export const emitVarEvent = (mesId: number) => {
+export const emitVarEvent = (mesId: number, forceUpdate: boolean = true) => {
     const { settings } = useSettingsStore();
     if (!settings.enabled) {
         return;
@@ -23,6 +23,14 @@ export const emitVarEvent = (mesId: number) => {
         if (!mes.is_user && !mes.is_system) {
             lastMesId = i;
         }
+    }
+
+    let hasSavedVars = false;
+    messageVars(mesId, (h) => {
+        hasSavedVars = h;
+    });
+    if (hasSavedVars && !forceUpdate) {
+        return;
     }
 
     console.log('Try emit var event, mesId:', mesId, 'last mesId:', lastMesId);

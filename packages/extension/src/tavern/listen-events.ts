@@ -16,18 +16,18 @@ export const listenEvents = () => {
             renderVue(MessageUpdateReason.UNKNOWN);
             emitVarEvents();
         },
-        [event_types.MESSAGE_DELETED]: () => {
+        [event_types.MESSAGE_DELETED]: (mesId: number) => {
             cleanVue();
             renderVue(MessageUpdateReason.UNKNOWN);
-            emitVarEvents();
+            emitVarEvents(mesId - 1);
         },
         [event_types.CHARACTER_MESSAGE_RENDERED]: (mesId: number) => {
             renderVue(MessageUpdateReason.STREAM_END);
             emitVarEvent(mesId);
         },
-        [event_types.MESSAGE_UPDATED]: () => {
+        [event_types.MESSAGE_UPDATED]: (mesId: number) => {
             renderVue(MessageUpdateReason.EDIT);
-            emitVarEvents();
+            emitVarEvents(mesId - 1);
         },
         [event_types.MESSAGE_SWIPED]: () => {
             renderVue(MessageUpdateReason.SWIPE);
