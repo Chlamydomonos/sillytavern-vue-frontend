@@ -6,10 +6,17 @@ export const cleanVue = () => {
         return;
     }
 
+    const { chatApps } = useVueAppStore();
+
     for (const node of chatDiv.childNodes) {
         if (node instanceof HTMLDivElement) {
             const isMsg = node.classList.contains('mes');
             if (!isMsg) {
+                continue;
+            }
+
+            const mesId = parseInt(node.attributes.getNamedItem('mesid')?.value ?? '-1');
+            if (mesId < 0) {
                 continue;
             }
 
@@ -27,12 +34,11 @@ export const cleanVue = () => {
 
             const vueAppDiv = mesBlock.querySelector('.vue-frontend-app');
             if (vueAppDiv) {
+                chatApps[mesId].app.unmount();
                 vueAppDiv.remove();
             }
         }
     }
-
-    const { chatApps } = useVueAppStore();
 
     for (const key in chatApps) {
         delete chatApps[key];

@@ -10,7 +10,7 @@ export const emitVarEvent = (mesId: number, forceUpdate: boolean = true) => {
         return;
     }
 
-    const currentEmitter = useVueAppStore().chatApps[mesId];
+    const currentEmitter = useVueAppStore().chatApps[mesId].emitter;
     if (!currentEmitter) {
         return;
     }

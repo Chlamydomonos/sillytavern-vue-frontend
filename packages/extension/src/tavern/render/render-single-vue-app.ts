@@ -37,7 +37,7 @@ export const renderSingleVueApp = (
     const vueAppDiv = mesBlock.querySelector('.vue-frontend-app');
     if (vueAppDiv instanceof HTMLDivElement) {
         vueAppDiv.hidden = false;
-        chatApps[mesId].emit('messageUpdated', content, reason);
+        chatApps[mesId].emitter.emit('messageUpdated', content, reason);
         return;
     }
 
@@ -48,7 +48,7 @@ export const renderSingleVueApp = (
     newDiv.style.paddingRight = '30px';
     chName.insertAdjacentElement('afterend', newDiv);
     const newEventEmitter = new FrontendEventEmitter();
-    chatApps[mesId] = newEventEmitter;
+    chatApps[mesId] = { app: newApp, emitter: newEventEmitter };
     newApp.provide('frontendEventEmitter', newEventEmitter);
     newApp.provide('tavernContext', getContext);
     createWrapperApi(newApp, context.characters[context.characterId].name, mesId);

@@ -1,6 +1,6 @@
 {
     "name": "@sillytavern-vue-frontend/rollup-plugin",
-    "version": "1.2.3",
+    "version": "1.2.4",
     "author": "Chlamydomonos",
     "main": "dist/index.js",
     "devDependencies": {
