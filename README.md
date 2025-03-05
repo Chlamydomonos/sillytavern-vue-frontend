@@ -57,6 +57,12 @@ interface WrapperAPI {
 
     // 保存聊天记录，同时更新用messageVars获得的变量
     saveChat: () => Promise<void>;
+
+    // 获取Vue世界书
+    getVueBook: () => Record<string, { content: string; depth: number }>;
+
+    // 获取User名字
+    getUserName: () => string;
 }
 ```
 
