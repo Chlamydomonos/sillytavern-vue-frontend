@@ -11,4 +11,7 @@ export const FakeWrapperAPI: WrapperApi = {
     getVueBook() {
         return {};
     },
+    getUserName() {
+        return 'User';
+    },
 };

@@ -1,8 +1,12 @@
 import { useVueAppStore } from '@/stores/vue-app';
 import { getContext } from 'sillytavern-extension-api';
-import { messageVars } from './wrapper-api/message-vars';
 
 export const handlePrompt = (eventData: { chat: { role: string; content: string }[]; dryRun: boolean }) => {
+    const { vueApp } = useVueAppStore();
+    if (!vueApp) {
+        return;
+    }
+
     const context = getContext();
     const chat = context.chat;
     for (let i = chat.length - 1; i >= 0; i--) {

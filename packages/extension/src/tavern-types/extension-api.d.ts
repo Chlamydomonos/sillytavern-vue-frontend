@@ -16,6 +16,7 @@ interface TavernContext {
     saveChat: () => Promise<void>;
     setExtensionPrompt: SetExtensionPrompt;
     registerMacro: (key: string, value: string | ((nonce: string) => string), description?: string) => void;
+    name1: string;
 }
 
 declare module 'sillytavern-extension-api' {
