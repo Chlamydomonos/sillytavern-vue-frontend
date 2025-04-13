@@ -29,8 +29,9 @@ export const listenEvents = () => {
             renderVue(MessageUpdateReason.EDIT);
             emitVarEvents(mesId - 1);
         },
-        [event_types.MESSAGE_SWIPED]: () => {
+        [event_types.MESSAGE_SWIPED]: (mesId: number) => {
             renderVue(MessageUpdateReason.SWIPE);
+            emitVarEvent(mesId);
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
         [event_types.CHAT_COMPLETION_PROMPT_READY]: handlePrompt,

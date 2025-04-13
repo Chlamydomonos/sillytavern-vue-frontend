@@ -9,7 +9,7 @@ export const handlePrompt = (eventData: { chat: { role: string; content: string 
 
     const context = getContext();
     const chat = context.chat;
-    for (let i = chat.length - 1; i >= 0; i--) {
+    for (let i = chat.length - 2; i >= 0; i--) {
         const mes = chat[i];
         if (!mes.is_user && !mes.is_system) {
             const eventEmitter = useVueAppStore().chatApps[i].emitter;
