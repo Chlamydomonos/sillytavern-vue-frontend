@@ -36,6 +36,10 @@ export const ProjectHelper = {
             original(predicate, arg);
         }
     },
+
+    extensionVersion: () => {
+        return inject('extensionVersion', '<1.3.0');
+    },
 };
 
 export { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';

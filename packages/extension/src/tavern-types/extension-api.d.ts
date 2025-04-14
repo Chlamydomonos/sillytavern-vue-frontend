@@ -17,6 +17,8 @@ interface TavernContext {
     setExtensionPrompt: SetExtensionPrompt;
     registerMacro: (key: string, value: string | ((nonce: string) => string), description?: string) => void;
     name1: string;
+    getThumbnailUrl: (type: string, file: string) => string;
+    this_chid: string;
 }
 
 declare module 'sillytavern-extension-api' {

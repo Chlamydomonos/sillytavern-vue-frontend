@@ -3,6 +3,7 @@ import { useVueAppStore } from '@/stores/vue-app';
 import { FrontendEventEmitter, MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { getContext } from 'sillytavern-extension-api';
 import { createWrapperApi } from '../wrapper-api';
+import { version } from '@/lib/version';
 
 export const renderSingleVueApp = (
     mesId: number,
@@ -42,6 +43,7 @@ export const renderSingleVueApp = (
     }
 
     const newApp = vueApp();
+    newApp.provide('extensionVersion', version);
     newApp.provide('initialMessage', content);
     const newDiv = document.createElement('div');
     newDiv.classList.add('vue-frontend-app');

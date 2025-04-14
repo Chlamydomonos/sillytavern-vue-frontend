@@ -14,4 +14,10 @@ export const FakeWrapperAPI: WrapperApi = {
     getUserName() {
         return 'User';
     },
+    getUserAvatarPath() {
+        return '/assets/user-avatar.png';
+    },
+    getCharAvatarPath() {
+        return '/assets/char-avatar.png';
+    },
 };

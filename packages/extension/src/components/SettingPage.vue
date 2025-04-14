@@ -2,6 +2,9 @@
     <div class="outer-container">
         <html class="dark">
             <div class="inner-container">
+                <div>
+                    <small>当前版本: v{{ version }}</small>
+                </div>
                 <div class="switch-row">
                     <div class="text">启用</div>
                     <el-switch v-model="settings.enabled" />
@@ -15,6 +18,7 @@
 </template>
 
 <script setup lang="ts">
+import { version } from '@/lib/version';
 import { useSettingsStore } from '@/stores/setting';
 import { uploadFrontend } from '@/tavern/upload-frontend';
 

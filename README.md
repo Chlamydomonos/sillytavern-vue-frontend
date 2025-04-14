@@ -38,6 +38,9 @@ interface ProjectHelper
 
     // 注册Vue世界书
     registerVarWorldInfo: <T extends Record<string, any>>(predicate: (vars: T) => boolean, name: string) => void;
+
+    // 插件版本号
+    extensionVersion: () => string;
 }
 ```
 
@@ -63,6 +66,12 @@ interface WrapperAPI {
 
     // 获取User名字
     getUserName: () => string;
+
+    // 获取User头像路径
+    getUserAvatarPath: () => string;
+
+    // 获取Char头像路径
+    getCharAvatarPath: () => string;
 }
 ```
 

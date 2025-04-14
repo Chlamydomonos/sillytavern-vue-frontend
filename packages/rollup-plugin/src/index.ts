@@ -8,6 +8,9 @@ export function plugin() {
             if (source == 'sillytavern-world-api') {
                 return { id: '../../../../../../../world-info.js', external: true };
             }
+            if (source == 'sillytavern-persona-api') {
+                return { id: '../../../../../../../personas.js', external: true };
+            }
             return null;
         },
     };

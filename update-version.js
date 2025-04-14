@@ -46,4 +46,23 @@ packageJsonPaths.forEach((filePath) => {
     }
 });
 
+const versionTSPath = path.join(workspaceDir, 'extension', 'src', 'lib', 'version.ts');
+
+if (fs.existsSync(versionTSPath)) {
+    try {
+        const content = fs.readFileSync(versionTSPath, 'utf-8');
+        const updatedContent = content.replace(/(version\s*=\s*')(\d+\.\d+\.\d+)(')/, `$1${newVersion}$3`);
+        if (updatedContent !== content) {
+            fs.writeFileSync(versionTSPath, updatedContent, 'utf-8');
+            console.log(`已更新 ${versionTSPath} 的版本号为 ${newVersion}`);
+        } else {
+            console.warn(`文件 ${versionTSPath} 的版本号未更新，可能未匹配到 version 字段。`);
+        }
+    } catch (err) {
+        console.error(`更新文件 ${versionTSPath} 时出错:`, err.message);
+    }
+} else {
+    console.warn(`文件 ${versionTSPath} 不存在，跳过。`);
+}
+
 console.log('所有版本号更新完成！');

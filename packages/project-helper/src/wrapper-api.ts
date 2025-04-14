@@ -4,4 +4,6 @@ export type WrapperApi = {
     saveChat: () => Promise<void>;
     getVueBook: () => Record<string, { content: string; depth: number }>;
     getUserName: () => string;
+    getUserAvatarPath: () => string;
+    getCharAvatarPath: () => string;
 };
