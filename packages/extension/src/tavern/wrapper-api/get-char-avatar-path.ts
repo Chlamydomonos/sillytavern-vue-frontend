@@ -4,9 +4,9 @@ const charsPath = '/characters/';
 
 export const getCharAvatarPath = () => {
     const context = getContext();
-    const charId = context.this_chid;
+    const charId = context.characterId;
     // const thumbnailPath = getThumbnailUrl('avatar', characters[this_chid].avatar);
-    const avatar = context.characters[parseInt(context.this_chid)].avatar;
+    const avatar = context.characters[charId].avatar;
     if (!avatar) {
         return '/img/ai4.png';
     }
