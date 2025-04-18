@@ -6,4 +6,5 @@ export type WrapperApi = {
     getUserName: () => string;
     getUserAvatarPath: () => string;
     getCharAvatarPath: () => string;
+    countTokens: (str: string, padding?: number) => Promise<number>;
 };

@@ -72,6 +72,9 @@ interface WrapperAPI {
 
     // 获取Char头像路径
     getCharAvatarPath: () => string;
+
+    // 统计Token数量
+    countTokens: (str: string, padding?: number) => Promise<number>;
 }
 ```
 

@@ -20,4 +20,7 @@ export const FakeWrapperAPI: WrapperApi = {
     getCharAvatarPath() {
         return '/assets/char-avatar.png';
     },
+    async countTokens(str, padding) {
+        return 0;
+    },
 };

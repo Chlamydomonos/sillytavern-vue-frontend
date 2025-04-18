@@ -18,6 +18,7 @@ interface TavernContext {
     registerMacro: (key: string, value: string | ((nonce: string) => string), description?: string) => void;
     name1: string;
     getThumbnailUrl: (type: string, file: string) => string;
+    getTokenCountAsync: (str: string, padding?: number) => Promise<number>;
 }
 
 declare module 'sillytavern-extension-api' {

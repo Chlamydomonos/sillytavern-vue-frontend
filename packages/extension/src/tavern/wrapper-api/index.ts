@@ -16,5 +16,6 @@ export const createWrapperApi = (app: App, charName: string, mesId: number) => {
         getUserName: () => getContext().name1,
         getUserAvatarPath: () => getUserAvatar(user_avatar),
         getCharAvatarPath,
+        countTokens: (str: string, padding?: number) => getContext().getTokenCountAsync(str, padding),
     });
 };
