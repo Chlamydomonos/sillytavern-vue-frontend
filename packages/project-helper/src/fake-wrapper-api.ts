@@ -23,4 +23,7 @@ export const FakeWrapperAPI: WrapperApi = {
     async countTokens(str, padding) {
         return 0;
     },
+    getRawChat() {
+        return [];
+    },
 };

@@ -6,6 +6,7 @@ import { useWorldInfoStore } from '@/stores/world-info';
 import { getContext } from 'sillytavern-extension-api';
 import { getUserAvatar, user_avatar } from 'sillytavern-persona-api';
 import { getCharAvatarPath } from './get-char-avatar-path';
+import { getRawChat } from './get-raw-chat';
 
 export const createWrapperApi = (app: App, charName: string, mesId: number) => {
     app.provide('wrapperApi', {
@@ -17,5 +18,6 @@ export const createWrapperApi = (app: App, charName: string, mesId: number) => {
         getUserAvatarPath: () => getUserAvatar(user_avatar),
         getCharAvatarPath,
         countTokens: (str: string, padding?: number) => getContext().getTokenCountAsync(str, padding),
+        getRawChat,
     });
 };
