@@ -13,36 +13,36 @@ export const listenEvents = () => {
     const listeners = {
         [event_types.CHAT_CHANGED]: async () => {
             await reloadVue();
-            renderVue(MessageUpdateReason.UNKNOWN);
-            emitVarEvents();
+            await renderVue(MessageUpdateReason.UNKNOWN);
+            await emitVarEvents();
         },
-        [event_types.MESSAGE_DELETED]: (mesId: number) => {
+        [event_types.MESSAGE_DELETED]: async (mesId: number) => {
             cleanVue();
-            renderVue(MessageUpdateReason.UNKNOWN);
-            emitVarEvents(mesId - 1);
+            await renderVue(MessageUpdateReason.UNKNOWN);
+            await emitVarEvents(mesId - 1);
         },
-        [event_types.CHARACTER_MESSAGE_RENDERED]: (mesId: number) => {
-            renderVue(MessageUpdateReason.STREAM_END);
-            emitVarEvent(mesId);
+        [event_types.CHARACTER_MESSAGE_RENDERED]: async (mesId: number) => {
+            await renderVue(MessageUpdateReason.STREAM_END);
+            await emitVarEvent(mesId);
         },
-        [event_types.MESSAGE_UPDATED]: (mesId: number) => {
-            renderVue(MessageUpdateReason.EDIT);
-            emitVarEvents(mesId - 1);
+        [event_types.MESSAGE_UPDATED]: async (mesId: number) => {
+            await renderVue(MessageUpdateReason.EDIT);
+            await emitVarEvents(mesId - 1);
         },
-        [event_types.MESSAGE_SWIPED]: (mesId: number) => {
-            renderVue(MessageUpdateReason.SWIPE);
-            emitVarEvent(mesId);
+        [event_types.MESSAGE_SWIPED]: async (mesId: number) => {
+            await renderVue(MessageUpdateReason.SWIPE);
+            await emitVarEvent(mesId);
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
         [event_types.CHAT_COMPLETION_PROMPT_READY]: handlePrompt,
     };
 
     for (const key in listeners) {
-        eventSource.on(key, (...args: any[]) => {
+        eventSource.on(key, async (...args: any[]) => {
             const listener = (listeners as any)[key];
             console.log('Vue frontend: SillyTavern event received:', key);
             console.log('args:', args);
-            listener(...args);
+            await listener(...args);
         });
     }
 };

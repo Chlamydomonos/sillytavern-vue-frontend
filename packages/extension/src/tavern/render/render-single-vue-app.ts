@@ -5,7 +5,7 @@ import { getContext } from 'sillytavern-extension-api';
 import { createWrapperApi } from '../wrapper-api';
 import { version } from '@/lib/version';
 
-export const renderSingleVueApp = (
+export const renderSingleVueApp = async (
     mesId: number,
     content: string,
     mes: HTMLDivElement,
@@ -38,7 +38,7 @@ export const renderSingleVueApp = (
     const vueAppDiv = mesBlock.querySelector('.vue-frontend-app');
     if (vueAppDiv instanceof HTMLDivElement) {
         vueAppDiv.hidden = false;
-        chatApps[mesId].emitter.emit('messageUpdated', content, reason);
+        await chatApps[mesId].emitter.emit('messageUpdated', content, reason);
         return;
     }
 

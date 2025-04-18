@@ -4,7 +4,7 @@ import { getContext } from 'sillytavern-extension-api';
 import { messageVars } from './wrapper-api/message-vars';
 import { getContent } from './get-content';
 
-export const emitVarEvent = (mesId: number, forceUpdate: boolean = true) => {
+export const emitVarEvent = async (mesId: number, forceUpdate: boolean = true) => {
     const { settings } = useSettingsStore();
     if (!settings.enabled) {
         return;
@@ -38,10 +38,10 @@ export const emitVarEvent = (mesId: number, forceUpdate: boolean = true) => {
     console.log('Try emit var event, mesId:', mesId, 'last mesId:', lastMesId);
 
     if (lastMesId == undefined) {
-        currentEmitter.emit('initVariables', getContent(chat, mesId));
+        await currentEmitter.emit('initVariables', getContent(chat, mesId));
         return;
     }
 
     const oldVars = messageVars(lastMesId)();
-    currentEmitter.emit('updateVariables', oldVars, getContent(chat, mesId));
+    await currentEmitter.emit('updateVariables', oldVars, getContent(chat, mesId));
 };

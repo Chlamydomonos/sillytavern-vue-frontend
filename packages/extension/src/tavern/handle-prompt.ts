@@ -1,7 +1,7 @@
 import { useVueAppStore } from '@/stores/vue-app';
 import { getContext } from 'sillytavern-extension-api';
 
-export const handlePrompt = (eventData: { chat: { role: string; content: string }[]; dryRun: boolean }) => {
+export const handlePrompt = async (eventData: { chat: { role: string; content: string }[]; dryRun: boolean }) => {
     const { vueApp } = useVueAppStore();
     if (!vueApp) {
         return;
@@ -13,7 +13,7 @@ export const handlePrompt = (eventData: { chat: { role: string; content: string 
         const mes = chat[i];
         if (!mes.is_user && !mes.is_system) {
             const eventEmitter = useVueAppStore().chatApps[i].emitter;
-            eventEmitter.emit('promptReady', eventData.chat, eventData.dryRun);
+            await eventEmitter.emit('promptReady', eventData.chat, eventData.dryRun);
             return;
         }
     }
