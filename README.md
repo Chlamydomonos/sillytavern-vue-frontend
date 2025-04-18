@@ -75,6 +75,9 @@ interface WrapperAPI {
 
     // 统计Token数量
     countTokens: (str: string, padding?: number) => Promise<number>;
+
+    // 获取原始聊天记录（未经正则修改）
+    getRawChat: () => { role: string; content: string }[];
 }
 ```
 
