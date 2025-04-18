@@ -7,6 +7,8 @@ import { getContext } from 'sillytavern-extension-api';
 import { getUserAvatar, user_avatar } from 'sillytavern-persona-api';
 import { getCharAvatarPath } from './get-char-avatar-path';
 import { getRawChat } from './get-raw-chat';
+import { cardVars } from './card-vars';
+import { saveCard } from './save-card';
 
 export const createWrapperApi = (app: App, charName: string, mesId: number) => {
     app.provide('wrapperApi', {
@@ -19,5 +21,7 @@ export const createWrapperApi = (app: App, charName: string, mesId: number) => {
         getCharAvatarPath,
         countTokens: (str: string, padding?: number) => getContext().getTokenCountAsync(str, padding),
         getRawChat,
+        cardVars,
+        saveCard,
     });
 };

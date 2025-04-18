@@ -26,4 +26,8 @@ export const FakeWrapperAPI: WrapperApi = {
     getRawChat() {
         return [];
     },
+    cardVars() {
+        return {};
+    },
+    async saveCard() {},
 };

@@ -78,6 +78,12 @@ interface WrapperAPI {
 
     // 获取原始聊天记录（未经正则修改）
     getRawChat: () => { role: string; content: string }[];
+
+    // 获取与角色卡绑定的变量系统
+    cardVars: () => Record<string, any>;
+
+    // 保存并更新与角色卡绑定的变量系统
+    saveCard: () => Promise<void>;
 }
 ```
 

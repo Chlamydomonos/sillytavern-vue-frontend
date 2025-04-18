@@ -8,4 +8,6 @@ export type WrapperApi = {
     getCharAvatarPath: () => string;
     countTokens: (str: string, padding?: number) => Promise<number>;
     getRawChat: () => { role: string; content: string }[];
+    cardVars: () => Record<string, any>;
+    saveCard: () => Promise<void>;
 };

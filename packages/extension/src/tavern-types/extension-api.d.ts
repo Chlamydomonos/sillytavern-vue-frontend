@@ -19,6 +19,7 @@ interface TavernContext {
     name1: string;
     getThumbnailUrl: (type: string, file: string) => string;
     getTokenCountAsync: (str: string, padding?: number) => Promise<number>;
+    writeExtensionField: (characterId: number, key: string, value: any) => Promise<void>;
 }
 
 declare module 'sillytavern-extension-api' {
