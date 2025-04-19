@@ -24,6 +24,7 @@ export const emitVarEvent = async (mesId: number, forceUpdate: boolean = true) =
         const mes = chat[i];
         if (!mes.is_user && !mes.is_system) {
             lastMesId = i;
+            break;
         }
     }
 
