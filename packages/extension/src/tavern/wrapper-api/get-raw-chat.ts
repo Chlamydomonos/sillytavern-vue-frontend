@@ -5,7 +5,7 @@ export const getRawChat = () => {
     const rawChat: { role: string; content: string }[] = [];
     for (const item of chat) {
         const role = item.is_user ? 'user' : 'assistant';
-        if (item.swipes && item.swipe_id > item.swipes.length) {
+        if (item.swipes && item.swipe_id >= item.swipes.length) {
             continue;
         }
         const content = item.swipes ? item.swipes[item.swipe_id] : item.mes;
