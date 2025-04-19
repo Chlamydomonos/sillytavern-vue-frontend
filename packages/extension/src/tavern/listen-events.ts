@@ -35,6 +35,10 @@ export const listenEvents = () => {
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
         [event_types.CHAT_COMPLETION_PROMPT_READY]: handlePrompt,
+        [event_types.GENERATION_ENDED]: async (mesId: number) => {
+            await renderVue(MessageUpdateReason.STREAM_END);
+            await emitVarEvents(mesId);
+        },
     };
 
     for (const key in listeners) {
