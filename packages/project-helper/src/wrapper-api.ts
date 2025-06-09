@@ -10,4 +10,5 @@ export type WrapperApi = {
     getRawChat: () => { role: string; content: string }[];
     cardVars: () => Record<string, any>;
     saveCard: () => Promise<void>;
+    chatVars: () => Record<string, any>;
 };

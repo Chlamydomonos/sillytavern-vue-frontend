@@ -30,4 +30,7 @@ export const FakeWrapperAPI: WrapperApi = {
         return {};
     },
     async saveCard() {},
+    chatVars() {
+        return {};
+    },
 };

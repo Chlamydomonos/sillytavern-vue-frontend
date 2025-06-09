@@ -9,6 +9,7 @@ import { getCharAvatarPath } from './get-char-avatar-path';
 import { getRawChat } from './get-raw-chat';
 import { cardVars } from './card-vars';
 import { saveCard } from './save-card';
+import { chatVars } from './chat-vars';
 
 export const createWrapperApi = (app: App, charName: string, mesId: number) => {
     app.provide('wrapperApi', {
@@ -23,5 +24,6 @@ export const createWrapperApi = (app: App, charName: string, mesId: number) => {
         getRawChat,
         cardVars,
         saveCard,
+        chatVars,
     });
 };
