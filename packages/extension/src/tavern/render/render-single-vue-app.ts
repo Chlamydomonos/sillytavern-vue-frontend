@@ -44,6 +44,7 @@ export const renderSingleVueApp = async (
 
     const newApp = vueApp();
     newApp.provide('extensionVersion', version);
+    newApp.provide('messageId', mesId);
     newApp.provide('initialMessage', content);
     const newDiv = document.createElement('div');
     newDiv.classList.add('vue-frontend-app');

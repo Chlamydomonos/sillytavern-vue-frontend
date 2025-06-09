@@ -41,6 +41,9 @@ interface ProjectHelper
 
     // 插件版本号
     extensionVersion: () => string;
+
+    // 当前楼层的消息ID
+    messageId: () => number;
 }
 ```
 
@@ -84,6 +87,9 @@ interface WrapperAPI {
 
     // 保存并更新与角色卡绑定的变量系统
     saveCard: () => Promise<void>;
+
+    // 获取聊天变量系统（可以与SillyTavern的脚本互动）
+    chatVars: () => Record<string, any>;
 }
 ```
 
