@@ -11,4 +11,5 @@ export type WrapperApi = {
     cardVars: () => Record<string, any>;
     saveCard: () => Promise<void>;
     chatVars: () => Record<string, any>;
+    getRequestHeaders: () => Record<string, any>;
 };

@@ -103,7 +103,13 @@ export const reloadVue = async () => {
 
     store.vueApp = undefined;
     try {
-        eval(jsContent);
+        const blob = new Blob([jsContent], { type: 'application/javascript' });
+        const objectUrl = URL.createObjectURL(blob);
+        try {
+            await import(objectUrl);
+        } finally {
+            URL.revokeObjectURL(objectUrl);
+        }
     } catch (e) {
         console.log('创建Vue APP失败');
         cleanVue();

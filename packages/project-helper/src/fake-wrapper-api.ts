@@ -33,4 +33,7 @@ export const FakeWrapperAPI: WrapperApi = {
     chatVars() {
         return {};
     },
+    getRequestHeaders() {
+        return {};
+    },
 };

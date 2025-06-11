@@ -25,5 +25,6 @@ export const createWrapperApi = (app: App, charName: string, mesId: number) => {
         cardVars,
         saveCard,
         chatVars,
+        getRequestHeaders: () => getContext().getRequestHeaders(),
     });
 };

@@ -61,8 +61,6 @@ export const uploadFrontend = async () => {
                 return;
             }
 
-            console.log(worldInfo);
-
             let vueCssEntry: TavernV2DataWorldInfoEntry | undefined;
             let vueJsEntry: TavernV2DataWorldInfoEntry | undefined;
 
@@ -96,14 +94,18 @@ export const uploadFrontend = async () => {
 
             const { settings } = useSettingsStore();
             if (settings.enabled) {
-                await reloadVue();
                 cleanVue();
-                renderVue(MessageUpdateReason.UNKNOWN);
+                await reloadVue();
+                await renderVue(MessageUpdateReason.UNKNOWN);
             }
             alert('成功上传Vue前端');
         } catch (e) {
             console.log('Err uploading vue frontend');
             console.log(e);
+            if (e instanceof Error) {
+                console.log('stack trace:');
+                console.log(e.stack);
+            }
             alert('未知问题');
         }
     } catch (e) {

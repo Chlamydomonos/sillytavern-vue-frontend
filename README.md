@@ -90,6 +90,9 @@ interface WrapperAPI {
 
     // 获取聊天变量系统（可以与SillyTavern的脚本互动）
     chatVars: () => Record<string, any>;
+
+    // 获取SillyTavern的请求头，用于向SillyTavern后端发送请求
+    getRequestHeaders: () => Record<string, any>;
 }
 ```
 
