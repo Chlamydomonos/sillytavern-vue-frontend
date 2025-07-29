@@ -29,7 +29,15 @@ export const renderSingleVueApp = async (
         return;
     }
 
-    const mesText = mesBlock.querySelector('.mes_text');
+    const mesTexts = mesBlock.querySelectorAll('.mes_text');
+    let mesText: Element | null = null;
+    for (const text of mesTexts) {
+        if (!text.closest('.vue-frontend-app')) {
+            mesText = text;
+            break;
+        }
+    }
+
     if (!mesText) {
         return;
     }

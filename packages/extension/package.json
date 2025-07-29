@@ -1,6 +1,6 @@
 {
     "name": "@sillytavern-vue-frontend/extension",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "author": "Chlamydomonos",
     "type": "module",
     "scripts": {
