@@ -39,6 +39,18 @@ export const renderSingleVueApp = async (
     if (vueAppDiv instanceof HTMLDivElement) {
         vueAppDiv.hidden = false;
         await chatApps[mesId].emitter.emit('messageUpdated', content, reason);
+
+        let isBottom = true;
+        if (mesId < context.chat.length - 1) {
+            for (let i = mesId + 1; i < context.chat.length; i++) {
+                if (!context.chat[i].is_user) {
+                    isBottom = false;
+                    break;
+                }
+            }
+        }
+        await chatApps[mesId].emitter.emit('floorChanged', mesId, isBottom);
+
         return;
     }
 
