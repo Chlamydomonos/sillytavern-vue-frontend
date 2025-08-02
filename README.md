@@ -118,6 +118,7 @@ interface FrontendEventEmitter {
 | `updateVariables` | `(oldVariables: Record<string, any>, currentMessage: string) => void` | 在楼层变量需要更新时触发。 |
 | `promptReady` | `(chat: { role: string; content: string }[], dryRun: boolean) => void` | 在Prompt即将发送给AI时触发。 |
 | `floorChanged` | `(floor: number, isBottom: boolean) => void` | 在当前消息的楼层改变时触发。 |
+| `messageSent` | `(message: string) => void` | 在用户发送消息时触发。 |
 
 ## 楼层变量与Vue世界书
 
