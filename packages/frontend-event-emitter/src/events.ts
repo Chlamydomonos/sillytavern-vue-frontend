@@ -12,4 +12,5 @@ export type Events = {
     updateVariables: (oldVariables: Record<string, any>, currentMessage: string) => void;
     promptReady: (chat: { role: string; content: string }[], dryRun: boolean) => void;
     floorChanged: (floor: number, isBottom: boolean) => void;
+    messageSent: (message: string) => void;
 };
