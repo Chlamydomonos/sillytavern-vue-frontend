@@ -23,21 +23,21 @@ export const listenEvents = () => {
             await emitVarEvents(mesId - 1);
         },
         [event_types.CHARACTER_MESSAGE_RENDERED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.STREAM_END);
+            await renderVue(MessageUpdateReason.STREAM_END, mesId);
             await emitVarEvent(mesId);
         },
         [event_types.MESSAGE_UPDATED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.EDIT);
+            await renderVue(MessageUpdateReason.EDIT, mesId);
             await emitVarEvents(mesId - 1);
         },
         [event_types.MESSAGE_SWIPED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.SWIPE);
+            await renderVue(MessageUpdateReason.SWIPE, mesId);
             await emitVarEvent(mesId);
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
         [event_types.CHAT_COMPLETION_PROMPT_READY]: handlePrompt,
         [event_types.GENERATION_ENDED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.STREAM_END);
+            await renderVue(MessageUpdateReason.STREAM_END, mesId);
             await emitVarEvents(mesId);
         },
         [event_types.MESSAGE_SENT]: async (mesId: number) => {

@@ -34,6 +34,9 @@ const cleanVue = () => {
     console.log('try cleanVue, vueCssElem:', vueCssElem);
     vueCssElem?.parentNode?.removeChild(vueCssElem);
     store.vueApp = undefined;
+    for (const id in store.chatApps) {
+        store.chatApps[id].app.unmount();
+    }
     store.chatApps = {};
 };
 
