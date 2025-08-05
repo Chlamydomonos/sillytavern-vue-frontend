@@ -82,6 +82,9 @@ export const renderSingleVueApp = async (
         if (isEditing && isEditing.parentNode == mesText) {
             (mesText as HTMLDivElement).hidden = false;
             newDiv.hidden = true;
+        } else {
+            (mesText as HTMLDivElement).hidden = true;
+            newDiv.hidden = false;
         }
     });
 

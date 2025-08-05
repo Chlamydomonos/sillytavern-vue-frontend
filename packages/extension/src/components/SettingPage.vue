@@ -1,19 +1,17 @@
 <template>
-    <div class="outer-container">
-        <html class="dark">
-            <div class="inner-container">
-                <div>
-                    <small>当前版本: v{{ version }}</small>
-                </div>
-                <div class="switch-row">
-                    <div class="text">启用</div>
-                    <el-switch v-model="settings.enabled" />
-                </div>
-                <div>
-                    <el-button @click="uploadFrontend">上传Vue前端到世界书</el-button>
-                </div>
+    <div class="vf-outer-container">
+        <div class="vf-inner-container">
+            <div>
+                <small>当前版本: v{{ version }}</small>
             </div>
-        </html>
+            <div class="vf-switch-row">
+                <div class="vf-text">启用</div>
+                <el-switch v-model="settings.enabled" />
+            </div>
+            <div>
+                <el-button @click="uploadFrontend">上传Vue前端到世界书</el-button>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -25,8 +23,8 @@ import { uploadFrontend } from '@/tavern/upload-frontend';
 const { settings } = useSettingsStore();
 </script>
 
-<style lang="scss" scoped>
-.outer-container {
+<style lang="scss">
+.vf-outer-container {
     border: 1px solid gray;
     border-radius: 4px;
     margin: 2px;
@@ -34,15 +32,16 @@ const { settings } = useSettingsStore();
     --stv-text-color-primary: #dcdcd2;
 }
 
-.inner-container {
+.vf-inner-container {
     margin: 5px;
 }
 
-.switch-row {
+.vf-switch-row {
     display: flex;
     justify-content: space-between;
-    .text {
-        line-height: 32px;
-    }
+}
+
+.vf-text {
+    line-height: 32px;
 }
 </style>

@@ -1,11 +1,12 @@
 {
     "name": "@sillytavern-vue-frontend/extension",
-    "version": "1.4.4",
+    "version": "1.5.0",
     "author": "Chlamydomonos",
     "type": "module",
     "scripts": {
         "dev": "vite",
         "build": "run-p type-check \"build-only {@}\" --",
+        "build:release": "cross-env NODE_ENV=release run-p type-check \"build-only {@}\" --",
         "preview": "vite preview",
         "build-only": "vite build",
         "type-check": "vue-tsc --build"
@@ -22,6 +23,7 @@
         "@types/node": "^22.10.2",
         "@vitejs/plugin-vue": "^5.2.1",
         "@vue/tsconfig": "^0.7.0",
+        "cross-env": "^7.0.3",
         "npm-run-all2": "^7.0.2",
         "sass": "^1.83.4",
         "typescript": "~5.6.3",

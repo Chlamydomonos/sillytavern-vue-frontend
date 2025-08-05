@@ -42,7 +42,7 @@ export default defineConfig({
                 assetFileNames: 'assets/[name].[ext]',
             },
         },
-        sourcemap: 'inline',
+        sourcemap: process.env.NODE_ENV === 'release' ? false : 'inline',
     },
     css: {
         preprocessorOptions: {
