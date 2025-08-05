@@ -37,7 +37,7 @@ jobs:
           cp -r ./.github ../temp
           cd ../temp
           pnpm install
-          pnpm build
+          pnpm build:release
           cd ../project
           git checkout main
           git pull origin main
