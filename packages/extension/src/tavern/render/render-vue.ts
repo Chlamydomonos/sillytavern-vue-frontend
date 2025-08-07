@@ -4,6 +4,10 @@ import type { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-eve
 import { getContent } from '../get-content';
 
 export const renderVue = async (reason: MessageUpdateReason, id?: number) => {
+    if (typeof id == 'string') {
+        id = parseInt(id);
+    }
+
     const chat = getContext().chat;
 
     const chatDiv = document.getElementById('chat') as HTMLDivElement | undefined;
@@ -31,6 +35,7 @@ export const renderVue = async (reason: MessageUpdateReason, id?: number) => {
 
             const mesId = parseInt(node.attributes.getNamedItem('mesid')?.value ?? '-1');
             if (mesId < 0) {
+                console.log('mesId < 0:', mesId);
                 continue;
             }
 

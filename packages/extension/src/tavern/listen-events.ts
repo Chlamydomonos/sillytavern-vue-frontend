@@ -43,6 +43,10 @@ export const listenEvents = () => {
         [event_types.MESSAGE_SENT]: async (mesId: number) => {
             await handleMessageSent(mesId);
         },
+        [event_types.MESSAGE_EDITED]: async (mesId: number) => {
+            await renderVue(MessageUpdateReason.EDIT, mesId);
+            await emitVarEvents(mesId - 1);
+        },
     };
 
     for (const key in listeners) {
