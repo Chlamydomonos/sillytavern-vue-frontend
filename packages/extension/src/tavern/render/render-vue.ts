@@ -3,9 +3,13 @@ import { renderSingleVueApp } from './render-single-vue-app';
 import type { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
 import { getContent } from '../get-content';
 
-export const renderVue = async (reason: MessageUpdateReason, id?: number) => {
-    if (typeof id == 'string') {
-        id = parseInt(id);
+export const renderVue = async (reason: MessageUpdateReason, ids?: number[]) => {
+    if (ids) {
+        for (let i = 0; i < ids.length; i++) {
+            if (typeof ids[i] == 'string') {
+                ids[i] = parseInt(ids[i] as unknown as string);
+            }
+        }
     }
 
     const chat = getContext().chat;
@@ -39,7 +43,7 @@ export const renderVue = async (reason: MessageUpdateReason, id?: number) => {
                 continue;
             }
 
-            if (id === undefined || id === mesId) {
+            if (ids === undefined || ids.includes(mesId)) {
                 console.log(`尝试渲染消息#${mesId}...`);
                 await renderSingleVueApp(mesId, getContent(chat, mesId), node, reason);
             }

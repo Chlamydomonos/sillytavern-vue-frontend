@@ -23,28 +23,28 @@ export const listenEvents = () => {
             await emitVarEvents(mesId - 1);
         },
         [event_types.CHARACTER_MESSAGE_RENDERED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.STREAM_END, mesId);
+            await renderVue(MessageUpdateReason.STREAM_END, [mesId, mesId - 1, mesId - 2]);
             await emitVarEvent(mesId);
         },
         [event_types.MESSAGE_UPDATED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.EDIT, mesId);
+            await renderVue(MessageUpdateReason.EDIT, [mesId, mesId - 1, mesId - 2]);
             await emitVarEvents(mesId - 1);
         },
         [event_types.MESSAGE_SWIPED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.SWIPE, mesId);
+            await renderVue(MessageUpdateReason.SWIPE, [mesId, mesId - 1, mesId - 2]);
             await emitVarEvent(mesId);
         },
         [event_types.STREAM_TOKEN_RECEIVED]: updateLastMessage,
         [event_types.CHAT_COMPLETION_PROMPT_READY]: handlePrompt,
         [event_types.GENERATION_ENDED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.STREAM_END, mesId);
+            await renderVue(MessageUpdateReason.STREAM_END, [mesId, mesId - 1, mesId - 2]);
             await emitVarEvents(mesId);
         },
         [event_types.MESSAGE_SENT]: async (mesId: number) => {
             await handleMessageSent(mesId);
         },
         [event_types.MESSAGE_EDITED]: async (mesId: number) => {
-            await renderVue(MessageUpdateReason.EDIT, mesId);
+            await renderVue(MessageUpdateReason.EDIT, [mesId, mesId - 1, mesId - 2]);
             await emitVarEvents(mesId - 1);
         },
     };
