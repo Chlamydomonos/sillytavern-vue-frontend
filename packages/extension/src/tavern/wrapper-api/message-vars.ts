@@ -7,14 +7,14 @@ export const messageVars = (mesId: number, callback?: (hasSavedVars: boolean) =>
 
     if (!mes.data) {
         mes.data = {};
+    }
+
+    if (Object.keys(mes.data).length == 0) {
         hasSavedVars = false;
     }
-    if (!mes.data.vueFrontendVars) {
-        mes.data.vueFrontendVars = {};
-        hasSavedVars = false;
-    }
+
     if (callback) {
         callback(hasSavedVars);
     }
-    return mes.data.vueFrontendVars as Record<string, any>;
+    return mes.data;
 };
