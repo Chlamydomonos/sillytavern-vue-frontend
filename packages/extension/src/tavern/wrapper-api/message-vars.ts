@@ -5,16 +5,16 @@ export const messageVars = (mesId: number, callback?: (hasSavedVars: boolean) =>
     const mes = context.chat[mesId];
     let hasSavedVars = true;
 
-    if (!mes.data) {
-        mes.data = {};
+    if (!mes.variables) {
+        mes.variables = {};
     }
 
-    if (Object.keys(mes.data).length == 0) {
+    if (Object.keys(mes.variables).length == 0) {
         hasSavedVars = false;
     }
 
     if (callback) {
         callback(hasSavedVars);
     }
-    return mes.data;
+    return mes.variables;
 };
