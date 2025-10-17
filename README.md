@@ -122,7 +122,7 @@ interface FrontendEventEmitter {
 
 ## 楼层变量与Vue世界书
 
-通过上述接口可以定义楼层变量。
+通过上述接口可以定义楼层变量。楼层变量和酒馆助手/MVU兼容。
 
 在角色世界书中创建名为`Vue-XXX`的条目，它就成为Vue世界书。在代码中使用`registerVarWorldInfo`注册Vue世界书时应该去掉`Vue-`前缀。
 
