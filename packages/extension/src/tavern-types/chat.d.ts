@@ -4,6 +4,7 @@ type ChatBase = {
     mes: string;
     name: string;
     send_date: string;
+    data: Record<string, any>;
     extra: Record<string, any>;
 };
 
