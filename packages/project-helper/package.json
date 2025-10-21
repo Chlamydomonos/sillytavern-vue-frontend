@@ -1,6 +1,6 @@
 {
     "name": "@sillytavern-vue-frontend/project-helper",
-    "version": "1.7.3",
+    "version": "1.7.4",
     "author": "Chlamydomonos",
     "main": "dist/index.js",
     "type": "module",
