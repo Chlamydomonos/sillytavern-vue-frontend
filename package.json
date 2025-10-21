@@ -1,11 +1,11 @@
 {
     "name": "sillytavern-vue-frontend",
-    "version": "1.7.5",
+    "version": "1.7.6",
     "private": "true",
     "author": "Chlamydomonos",
     "scripts": {
         "build": "cd packages/rollup-plugin && pnpm build && cd ../frontend-event-emitter && pnpm build && cd ../extension && pnpm build && cd ../project-helper && pnpm build && cd ../scaffold && pnpm build",
         "build:release": "cd packages/rollup-plugin && pnpm build && cd ../frontend-event-emitter && pnpm build && cd ../extension && pnpm build:release && cd ../project-helper && pnpm build && cd ../scaffold && pnpm build:release",
-        "publish-all": "pnpm build:release && cd packages/frontend-event-emitter && pnpm publish --registry https://registry.npmjs.org/ --publish-branch release && cd ../project-helper && pnpm publish --registry https://registry.npmjs.org/ --publish-branch release && cd ../scaffold && pnpm publish --registry https://registry.npmjs.org/ --publish-branch release && cd ../.. && pnpm build"
+        "publish-all": "pnpm -r publish --registry https://registry.npmjs.org/ --access public --publish-branch release"
     }
 }

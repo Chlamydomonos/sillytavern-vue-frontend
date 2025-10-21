@@ -4,11 +4,10 @@
 
 ## 使用方法
 
-- 创建一个以Vite为构建工具的Vue项目（如果使用`npm`的话，只需要运行`npm init vue@latest`）。
-- 运行`npm install @sillytavern-vue-frontend/project-helper --registry https://npm.chlamydomonos.xyz/`，安装SillyTavern Vue前端库。
-- 在`main.ts`中，移除`.mount('#app')`或类似代码。从`@sillytavern-vue-frontend/project-helper`中导入`ProjectHelper`对象，使用`ProjectHelper.acceptVueApp`函数来把Vue APP暴露给插件。
-- 用Vite构建项目得到`dist`文件夹。在SillyTavern中打开角色卡并绑定世界书后，点击Vue前端插件的“上传Vue前端到世界书”按钮上传该文件夹。注意，只有`index-XXXXXXXX.css`和`index-XXXXXXXX.js`文件会被上传。额外的css、js文件以及图片等资源文件不会上传。
-- 刷新窗口后，角色输出的每条消息都会被替换为一个Vue前端实例。
+- 运行`npm init sillytavern-vue-frontend`来创建一个前端项目。
+- 项目创建完成后，使用`npm install`安装依赖。
+- 使用`npm build`构建项目。
+- 打开SillyTavern，安装本插件。使用插件设置界面的“上传Vue前端”按钮，选择构建产生的`dist`文件夹。
 
 具体的示例参见[示例项目](https://github.com/Chlamydomonos/sillytavern-vue-frontend-example)
 
