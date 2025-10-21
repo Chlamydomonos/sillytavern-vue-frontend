@@ -65,6 +65,18 @@ export const renderSingleVueApp = async (
     const newApp = vueApp();
     newApp.provide('extensionVersion', version);
     newApp.provide('messageId', mesId);
+
+    let isBottom = true;
+    if (mesId < context.chat.length - 1) {
+        for (let i = mesId + 1; i < context.chat.length; i++) {
+            if (!context.chat[i].is_user) {
+                isBottom = false;
+                break;
+            }
+        }
+    }
+    newApp.provide('isBottom', isBottom);
+
     newApp.provide('initialMessage', content);
     const newDiv = document.createElement('div');
     newDiv.classList.add('vue-frontend-app');

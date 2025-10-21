@@ -1,6 +1,8 @@
 import { inject, type App } from 'vue';
 import { FakeWrapperAPI } from './fake-wrapper-api';
 import { FakeEventEmitter } from './fake-event-emitter';
+import { useMessage } from './use-message';
+import { useFloor } from './use-floor';
 
 export const ProjectHelper = {
     acceptVueApp: (app: () => App) => {
@@ -10,6 +12,9 @@ export const ProjectHelper = {
         }
     },
 
+    /**
+     * @deprecated 使用 {@link useMessage}
+     */
     initialMessage: () => {
         return inject('initialMessage', '');
     },
@@ -41,9 +46,15 @@ export const ProjectHelper = {
         return inject('extensionVersion', '<1.3.0');
     },
 
+    /**
+     * @deprecated 使用 {@link useFloor}
+     */
     messageId: () => {
         return inject('messageId', 0);
     },
+
+    useMessage,
+    useFloor,
 };
 
 export { MessageUpdateReason } from '@sillytavern-vue-frontend/frontend-event-emitter';
