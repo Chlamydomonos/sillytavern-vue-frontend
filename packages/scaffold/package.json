@@ -1,6 +1,6 @@
 {
     "name": "create-sillytavern-vue-frontend",
-    "version": "1.7.4",
+    "version": "1.7.5",
     "devDependencies": {
         "@types/node": "^22.10.7",
         "rimraf": "^6.0.1",
