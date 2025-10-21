@@ -6,7 +6,7 @@
     "js": "packages/extension/dist/assets/index.js",
     "css": "packages/extension/dist/assets/index.css",
     "author": "Chlamydomonos",
-    "version": "1.7.4",
+    "version": "1.7.5",
     "homePage": "https://github.com/Chlamydomonos/sillytavern-vue-frontend",
     "auto_update": true
 }
