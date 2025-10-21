@@ -1,0 +1,3 @@
+[submodule "packages/scaffold/template"]
+	path = packages/scaffold/template
+	url = https://github.com/Chlamydomonos/sillytavern-vue-frontent-project-template

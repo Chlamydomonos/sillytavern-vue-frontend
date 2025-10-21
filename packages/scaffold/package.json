@@ -1,0 +1,20 @@
+{
+    "name": "create-sillytavern-vue-frontend",
+    "version": "1.7.1",
+    "devDependencies": {
+        "rimraf": "^6.0.1",
+        "typescript": "^5.9.3"
+    },
+    "dependencies": {
+        "inquirer": "^12.10.0"
+    },
+    "scripts": {
+        "build": "rimraf dist && tsc",
+        "build:release": "rimraf dist && tsc --project ./tsconfig.release.json"
+    },
+    "bin": "./dist/main.js",
+    "files": [
+        "dist",
+        "template"
+    ]
+}

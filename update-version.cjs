@@ -22,6 +22,7 @@ const packageJsonPaths = [
     path.join(workspaceDir, 'frontend-event-emitter', 'package.json'),
     path.join(workspaceDir, 'project-helper', 'package.json'),
     path.join(workspaceDir, 'rollup-plugin', 'package.json'),
+    path.join(workspaceDir, 'scaffold', 'package.json'),
     path.join(rootDir, 'manifest.json'),
 ];
 

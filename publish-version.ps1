@@ -1,6 +1,6 @@
 param([string]$version)
 
-node ./update-version.js $version
+node ./update-version.cjs $version
 git add .
 git commit -m "$version"
 git push
