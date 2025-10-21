@@ -2,6 +2,7 @@
     "name": "@sillytavern-vue-frontend/extension",
     "version": "1.7.5",
     "author": "Chlamydomonos",
+    "private": "true",
     "type": "module",
     "scripts": {
         "dev": "vite",
