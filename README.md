@@ -25,6 +25,7 @@ interface ProjectHelper
     acceptVueApp: (app: () => App) => void;
 
     // 前端创建那一刻对应的SillyTavern消息。如果消息内容发生改变会通过事件通知，此函数的返回值不会变化。
+    // deprecated: 使用`useMessage`
     initialMessage: () => string;
 
     // 事件系统
@@ -43,7 +44,14 @@ interface ProjectHelper
     extensionVersion: () => string;
 
     // 当前楼层的消息ID
+    // deprecated: 使用`useFloor`
     messageId: () => number;
+
+    // 当前楼层的消息，会自动更新
+    useMessage: () => Ref<string>;
+
+    // 当前楼层的楼层号，以及是否为最后一层，会自动更新
+    useFloor: () => { floor: Ref<number>; isBottom: Ref<boolean>; }
 }
 ```
 
