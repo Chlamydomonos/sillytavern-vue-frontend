@@ -1,19 +1,17 @@
 # SillyTavern的Vue前端插件
 
-这个插件可以用Vue前端替换SillyTavern自带的消息渲染界面。就是这样。还处于早期阶段，可能不太好用。
+这个插件可以用Vue前端替换SillyTavern自带的消息渲染界面。就是这样。
 
-## 使用方法
+## 前端编写方法
 
 - 运行`npm init sillytavern-vue-frontend`来创建一个前端项目。
 - 项目创建完成后，使用`npm install`安装依赖。
-- 使用`npm build`构建项目。
-- 打开SillyTavern，安装本插件。使用插件设置界面的“上传Vue前端”按钮，选择构建产生的`dist`文件夹。
-
-具体的示例参见[示例项目](https://github.com/Chlamydomonos/sillytavern-vue-frontend-example)
+- 使用`npm run build`构建项目。
+- 打开SillyTavern，安装本插件。使用插件设置界面的“上传Vue前端到世界书”按钮，在弹出的资源管理器界面中选择构建产生的`dist`文件夹并上传。
 
 ## 接口
 
-声明：接口还处于早期阶段，将在后续设计更多接口。
+Vue前端插件与[酒馆助手](https://github.com/N0VI028/JS-Slash-Runner)兼容。如果本插件缺少一些接口，可以直接使用酒馆助手的相应接口。
 
 前端中可用的接口位于包`@sillytavern-vue-frontend/project-helper`导出的成员`ProjectHelper`中。其类型定义如下：
 
@@ -134,3 +132,7 @@ interface FrontendEventEmitter {
 在角色世界书中创建名为`Vue-XXX`的条目，它就成为Vue世界书。在代码中使用`registerVarWorldInfo`注册Vue世界书时应该去掉`Vue-`前缀。
 
 目前Vue世界书只支持固定深度注入。其他注入方式将不被识别。
+
+## 酒馆助手调用
+
+使用脚手架创建的项目自带酒馆助手的声明文件，可以通过`window.TavernHelper`对象调用酒馆助手。
