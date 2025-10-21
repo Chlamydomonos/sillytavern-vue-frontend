@@ -1,12 +1,13 @@
 {
     "name": "create-sillytavern-vue-frontend",
-    "version": "1.7.1",
+    "version": "1.7.2",
     "devDependencies": {
         "rimraf": "^6.0.1",
         "typescript": "^5.9.3"
     },
     "dependencies": {
-        "inquirer": "^12.10.0"
+        "inquirer": "^12.10.0",
+        "prettier": "^3.6.2"
     },
     "scripts": {
         "build": "rimraf dist && tsc",
